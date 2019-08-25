@@ -1,0 +1,10 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t joshlemer/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run joshlemer/docker-react npm run test -- --coverage
+
